@@ -1,0 +1,17 @@
+{
+    "name": "source-connector",
+    "config": {
+        "connector.class": "io.confluent.connect.jdbc.JdbcSourceConnector",
+		"connection.url": "jdbc:postgresql://postgres:5432/postgres",
+		"connection.user": "postgres",
+		"connection.password": "postgres",
+		"table.whitelist": "log",
+		"mode": "timestamp",
+		"timestamp.column.name": "created_at",
+		"poll.interval.ms": 5000,
+		"topic.prefix": "postgres_",
+		"topic.creation.enable": true,
+		"topic.creation.default.replication.factor": 1,
+		"topic.creation.default.partitions": 1
+	}
+}
