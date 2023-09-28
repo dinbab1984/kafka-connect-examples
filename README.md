@@ -27,4 +27,6 @@ Delete source connector : ````curl -X DELETE http://localhost:8083/connectors/so
 ### Kafka Sink Connector example (kafka topic to postgres, table auto create & insert mode)
 Create Sink connector : ````curl -i -X POST -H  "Content-Type:application/json" http://localhost:8083/connectors/ -d "@postgres_sink_connector.json````
 
-Delete sink connector : ````curl -X DELETE http://localhost:8083/connectors/sink-connector/```
+Delete sink connector : ````curl -X DELETE http://localhost:8083/connectors/sink-connector/````
+
+List all connectors: ````curl -X GET http://localhost:8083/connectors````
