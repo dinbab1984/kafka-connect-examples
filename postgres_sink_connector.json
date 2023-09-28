@@ -8,6 +8,12 @@
 		"topics": "postgres_log",
 		"table.name.format": "kafka_log",
 		"insert.mode": "insert",
-		"auto.create": true
+		"auto.create": true,
+		"pk.mode": "record_key",
+		"pk.fields": "id",
+		"key.converter": "org.apache.kafka.connect.json.JsonConverter",
+		"key.converter.schemas.enable": true,
+        "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+		"value.converter.schemas.enable": true
 	}
 }
