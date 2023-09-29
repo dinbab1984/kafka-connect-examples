@@ -8,6 +8,7 @@
 		"table.whitelist": "log",
 		"mode": "timestamp",
 		"timestamp.column.name": "created_at",
+		"timestamp.initial" : -1,
 		"poll.interval.ms": 5000,
 		"key.converter": "org.apache.kafka.connect.json.JsonConverter",
 		"key.converter.schemas.enable":"true",

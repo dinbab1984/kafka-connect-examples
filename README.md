@@ -5,7 +5,7 @@
 Clone the git repository https://github.com/dinbab1984/docker-compose
 Start Postgres and Kafka (includes kafka-connect) and  as described in https://github.com/dinbab1984/docker-compose#readme
 
-Connect to postgres databae running in docker using the credentials as https://github.com/dinbab1984/docker-compose/blob/main/postgres.yml (hint : download and install pgadmin tool, connection properties hostname = localhost)
+Connect to postgres databae running in docker using the credentials as https://github.com/dinbab1984/docker-compose/blob/main/postgres.yml (hint : download and install suitable postgres sql client tool, connection properties hostname = localhost)
 
 create a log table using the query as follows: 
 ````
@@ -13,7 +13,7 @@ CREATE TABLE log
 (
     id uuid NOT NULL DEFAULT gen_random_uuid(),
     message character varying(100) NOT NULL,
-    created_at timestamp without time zone NOT NULL DEFAULT now(),
+    created_at timestamp with time zone NOT NULL DEFAULT now(),
     CONSTRAINT log_pkey PRIMARY KEY (id)
 );
 ````
@@ -30,3 +30,11 @@ Create Sink connector : ````curl -i -X POST -H  "Content-Type:application/json" 
 Delete sink connector : ````curl -X DELETE http://localhost:8083/connectors/sink-connector/````
 
 List all connectors: ````curl -X GET http://localhost:8083/connectors````
+
+### Test the Kafka Connector by manually adding records to postgres log table as follows:
+````
+INSERT INTO log(message) VALUES('first log message');
+INSERT INTO log(message) VALUES('second log message');
+````
+There should be a table with name "kafka_log" with the same records from log table.
+If yes, then it proves the data movement as follows: postgres table(log table) --via source connector--> auto createed kafka topic(postgres_log) --via sink connector--> auto created postgres table(kafka_log)
