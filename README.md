@@ -22,12 +22,12 @@ Clone this git repository
 ### Kafka Source Connector example (postgres to kafka topic auto create, timestamp new inserts)
 Create source connector : ````curl -i -X POST -H  "Content-Type:application/json" http://localhost:8083/connectors/ -d "@postgres_source_connector.json"````
 
-Delete source connector : ````curl -X DELETE http://localhost:8083/connectors/source-connector/````
+Delete source connector(only applicable if intended to recreate): ````curl -X DELETE http://localhost:8083/connectors/source-connector/````
 
 ### Kafka Sink Connector example (kafka topic to postgres, table auto create & insert mode)
 Create Sink connector : ````curl -i -X POST -H  "Content-Type:application/json" http://localhost:8083/connectors/ -d "@postgres_sink_connector.json````
 
-Delete sink connector : ````curl -X DELETE http://localhost:8083/connectors/sink-connector/````
+Delete sink connector(only applicable if intended to recreate): ````curl -X DELETE http://localhost:8083/connectors/sink-connector/````
 
 List all connectors: ````curl -X GET http://localhost:8083/connectors````
 
@@ -35,6 +35,9 @@ List all connectors: ````curl -X GET http://localhost:8083/connectors````
 ````
 INSERT INTO log(message) VALUES('first log message');
 INSERT INTO log(message) VALUES('second log message');
+INSERT INTO log(message) VALUES('third log message');
+INSERT INTO log(message) VALUES('fourth log message');
+INSERT INTO log(message) VALUES('fifth log message');
 ````
 There should be a table with name "kafka_log" with the same records from log table.
 If yes, then it proves the data movement as follows: postgres table(log table) --via source connector--> auto createed kafka topic(postgres_log) --via sink connector--> auto created postgres table(kafka_log)
