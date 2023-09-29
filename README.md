@@ -39,5 +39,6 @@ INSERT INTO log(message) VALUES('third log message');
 INSERT INTO log(message) VALUES('fourth log message');
 INSERT INTO log(message) VALUES('fifth log message');
 ````
-There should be a table with name "kafka_log" with the same records from log table.
-If yes, then it proves the data movement as follows: postgres table(log table) --via source connector--> auto createed kafka topic(postgres_log) --via sink connector--> auto created postgres table(kafka_log)
+There should be a table with name "kafka_log" with the same records from log table.  
+If yes, then it proves the data movement as follows:  
+postgres table(log) --via source connector--> auto created kafka topic(postgres_log) --via sink connector--> auto created postgres table(kafka_log)
