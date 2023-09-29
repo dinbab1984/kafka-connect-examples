@@ -2,11 +2,10 @@
 
 ## Pre-requisites
 ### Set up Postgres, Kafka (includes kafka-connect)
-#### Clone the git repository https://github.com/dinbab1984/docker-compose
-#### Start Postgres and Kafka (includes kafka-connect) and  as described in https://github.com/dinbab1984/docker-compose#readme
-#### Clone this git repository
+Clone the git repository https://github.com/dinbab1984/docker-compose
+Start Postgres and Kafka (includes kafka-connect) and  as described in https://github.com/dinbab1984/docker-compose#readme
 
-#### Connect to postgres databae running in docker using the credentials as https://github.com/dinbab1984/docker-compose/blob/main/postgres.yml (hint : download and install pgadmin tool, connection properties hostname = localhost)
+Connect to postgres databae running in docker using the credentials as https://github.com/dinbab1984/docker-compose/blob/main/postgres.yml (hint : download and install pgadmin tool, connection properties hostname = localhost)
 
 create a log table using the query as follows: 
 ````
@@ -18,6 +17,7 @@ CREATE TABLE log
     CONSTRAINT log_pkey PRIMARY KEY (id)
 );
 ````
+Clone this git repository
 
 ### Kafka Source Connector example (postgres to kafka topic auto create, timestamp new inserts)
 Create source connector : ````curl -i -X POST -H  "Content-Type:application/json" http://localhost:8083/connectors/ -d "@postgres_source_connector.json"````
