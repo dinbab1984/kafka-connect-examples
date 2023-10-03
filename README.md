@@ -2,7 +2,7 @@
 
 ## Pre-requisites
 ### Set up Postgres, Kafka (includes kafka-connect)
-Clone the git repository https://github.com/dinbab1984/docker-compose
+Clone the git repository https://github.com/dinbab1984/docker-compose  
 Start Postgres and Kafka (includes kafka-connect) and  as described in https://github.com/dinbab1984/docker-compose#readme
 
 Connect to postgres databae running in docker using the credentials as https://github.com/dinbab1984/docker-compose/blob/main/postgres.yml (hint : download and install suitable postgres sql client tool, connection properties hostname = localhost)
